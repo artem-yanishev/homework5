@@ -10,18 +10,14 @@ public class Main {
         System.out.println("Задача 2.");
         byte clientOS2 = 1;
         short clientDeviceYear = 2014;
-        if (clientOS2 == 0) {
-            if (clientDeviceYear < 2015) {
-                System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-            } else {
-                System.out.println("Установите версию приложения для iOS по ссылке");
-            }
-        } else if (clientOS2 == 1) {
-            if (clientDeviceYear < 2015) {
-                System.out.println("Установите облегченную версию приложения для Android по ссылке");
-            } else {
-                System.out.println("Установите версию приложения для Android по ссылке");
-            }
+        if (clientOS2 == 0 && clientDeviceYear < 2015) {
+            System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+        } else if (clientOS2 == 0 && clientDeviceYear >= 2015) {
+            System.out.println("Установите версию приложения для iOS по ссылке");
+        } else if (clientOS2 == 1 && clientDeviceYear < 2015) {
+            System.out.println("Установите облегченную версию приложения для Android по ссылке");
+        } else if (clientOS2 == 1 && clientDeviceYear >= 2015) {
+            System.out.println("Установите версию приложения для Android по ссылке");
         }
         System.out.println("Задача 3.");
         short year = 2025;
@@ -35,16 +31,19 @@ public class Main {
         System.out.println("Задача 4.");
         byte deliveryDistance = 95;
         if (deliveryDistance > 100) {
-            System.out.println("Доставка работает в пределах 100км.");
-        } else if (deliveryDistance > 60 && deliveryDistance <= 100) {
-            System.out.println("Доставим через 3 дня.");
-        } else if (deliveryDistance > 20 && deliveryDistance <= 60) {
-            System.out.println("Доставим через 2 дня.");
-        } else if (deliveryDistance > 0 && deliveryDistance <= 20) {
-            System.out.println("Доставим через сутки.");
+            System.out.println("Доставки нет.");
+        } else {
+            byte deliveryDays = 1;
+            if (deliveryDistance > 20) {
+                deliveryDays++;
+            }
+            if (deliveryDistance > 60) {
+                deliveryDays++;
+            }
+            System.out.println("Потребуется дней: " + deliveryDays);
         }
         System.out.println("Задача 5.");
-        byte monthNumber = 12;
+        byte monthNumber = 4;
         switch (monthNumber) {
             case 1:
             case 2:
